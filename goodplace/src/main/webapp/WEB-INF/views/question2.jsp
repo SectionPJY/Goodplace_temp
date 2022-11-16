@@ -26,8 +26,8 @@
 			<div>
 				<h4>GoodPlace의 중심은 항상 고객님입니다.</h4>
 				<p>
-					GoodPlace를 이용하면서 느끼신 불편사항이나 바라는점을 알려주세요.<br> 고객님의 소중한 의견으로 한
-					뼘더 자라는 GoodPlace가 되겠습니다.
+					GoodPlace를 이용하면서 느끼신 불편사항이나 바라는점을 알려주세요.<br> 고객님의 소중한 의견으로 한뼘
+					더 자라는 GoodPlace가 되겠습니다.
 				</p>
 			</div>
 			<div>
@@ -35,9 +35,9 @@
 				<%
 					Object u_id = session.getAttribute("u_id");
 				%>
-				<input type="text" name="q_uid" value="<%=(String) u_id %>">
+				<input type="text" name="q_uid" value="<%=(String) u_id%>">
 				<p>
-					<textarea id="questionContent" name="q_content"
+				<textarea id="questionContent" name="q_content"
 						placeholder="의견을 남겨주세요 
 					*상담사가 내용 확인을 위해 연락을 드릴 수 있습니다.
 					전화 연락을 원치 않으시면[전화불필요를]입력해주세요..

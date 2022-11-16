@@ -675,10 +675,10 @@ public class HomeController {
 
 			if (1 == result) {
 
-				return "redirect:admin";
+				return "/admin";
 			} else {
-
-				return "redirect:login2";
+				request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");
+				request.setAttribute("url", "login2");
 			}
 		} else if (mode.equals("member")) {
 			int result = loginCheckCommand.executeMember(model);
@@ -687,13 +687,15 @@ public class HomeController {
 
 				return "/index";
 			} else {
-
-				return "redirect:login2";
+				request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");
+				request.setAttribute("url", "login2");
 			}
 		} else {
-
-			return "/error";
+			request.setAttribute("msg", "아이디 또는 비밀번호를 확인해주세요.");
+			request.setAttribute("url", "login2");
 		}
+
+		return "/alert";
 
 	}
 
@@ -853,13 +855,14 @@ public class HomeController {
 		int result = qnaInsertCommand.execute(model);
 		if (1 == result) {
 			System.out.println("========== Insert Success ==========");
-
-			return "qnaInsertOk";
+			request.setAttribute("msg", "질문이 등록되었습니다.");
+			request.setAttribute("url", "question2");
 		} else {
 			System.out.println("========== Update Failed ==========");
 
 			return "updateQna";
 		}
+		return "/alert";
 	}
 
 	@RequestMapping("/deleteQuestion")

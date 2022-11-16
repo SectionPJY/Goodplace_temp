@@ -13,15 +13,14 @@
 			url : "http://localhost:8080/ex/searchPage",
 			data : {
 				searchWord : searchWord
-				result:""
 			},
 			success : function(data) {
-				const url = "http://localhost:8080/ex/" + data.result
+				const url = "http://localhost:8080/ex/searchPage"
 				console.log(url)
 				location.replace(url)
 			},
 			error : function(data) {
-				alert(data.result)
+				alert(data)
 			}
 		});
 	}

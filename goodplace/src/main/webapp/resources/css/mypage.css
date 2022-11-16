@@ -190,20 +190,20 @@ div.detail ul.list-group a.list-group-item.active {
 
 .listing-table .table thead tr .rating span {
   background: #f3f3f3;
-  padding: 0 3px;
+  padding: 0 5px;
   border-radius: 4px;
 }
 
 .listing-table .table thead tr .status .active {
   background: #f3f3f3;
   color: #ffffff;
-  padding: 0 3px;
+  padding: 0 px;
   border-radius: 4px;
 }
 
 .listing-table .table thead tr .status .non-active {
   background: #d7d7d7;
-  padding: 0 3px;
+  padding: 0 px;
   border-radius: 4px;
 }
 

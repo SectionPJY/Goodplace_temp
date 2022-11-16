@@ -136,7 +136,7 @@
 
 					<div class="dashborad-box">
 						<h4 class="title">나의 문의 사항</h4>
-						<table>
+						<table class="listing-table">
 							<thead>
 								<tr>
 									<th>질문제목</th>

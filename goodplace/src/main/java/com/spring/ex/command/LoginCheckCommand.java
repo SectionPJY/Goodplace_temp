@@ -39,11 +39,11 @@ public class LoginCheckCommand {
 
 			System.out.println("========== Session Create Success ==========");
 
-			return result;
+			return 1;
 		} else {
 			System.out.println("========== Login Failed ==========");
 
-			return result;
+			return 3;
 		}
 	}
 	
