@@ -13,19 +13,6 @@
 	<%@include file="header.jsp"%>
 	<hr>
 	<br>
-	<header style="z-index: 1">
-		<div align="center">
-			<select class="category1">
-				<option>카테고리</option>
-				<option>텐트</option>
-				<option>침낭</option>
-				<option>화로</option>
-				<option>키친</option>
-				<option>퍼니처</option>
-			</select> <input type="text" class="searchchang" autofocus required>
-			<button class="searchbutton" type="submit">검색</button>
-		</div>
-	</header>
 	<div class="shCMSshop">
 		<div class="shopView">
 			<c:forEach items="${dto }" var="EquipDTO">

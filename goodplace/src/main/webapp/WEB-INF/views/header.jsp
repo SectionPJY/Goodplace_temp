@@ -16,10 +16,7 @@
 		</a>
 
 		<div class="dropdown">
-			<a class="navbar-brand" href="#!">캠핑장</a>
-			<div class="dropdown-content" style="width: 200px">
-				<a href="namesearch">이름으로 찾기</a> <a href="mapsearch">지역으로 찾기</a>
-			</div>
+			<a class="navbar-brand" href="namesearch">캠핑장</a>
 		</div>
 
 		<div class="dropdown">

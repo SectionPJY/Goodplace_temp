@@ -63,33 +63,6 @@
 	<br>
 	<br>
 	<br>
-	<!-- 중앙 그림 검색바 -->
-	<div class="container">
-		<header class="masthead">
-			<div class="container position-relative">
-				<div class="row justify-content-center">
-					<div class="text-center text-white">
-						<div class="floatleft">
-							<select class="floatleft">
-								<option value="0">지역별</option>
-								<option value="bbsTitle">서울</option>
-								<option value="userID">부산</option>
-							</select> <input type="text" class="floatleft"
-								placeholder="camping search" name="searchText" maxlength="100">
-							<a class="navbar-brand" href="#!">
-								<button type="submit" class="btn btn-primary btn-lg disabled">
-									<img
-										src="https://s3.ap-northeast-2.amazonaws.com/cdn.wecode.co.kr/icon/search.png" />
-								</button>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</header>
-	</div>
-	<br>
-	<br>
 	<!-- 포토존 -->
 	<div style="text-align: center">
 		<h1>포토존</h1>

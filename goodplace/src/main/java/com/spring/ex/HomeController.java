@@ -229,8 +229,17 @@ public class HomeController {
 	}
 
 	@RequestMapping("/question2")
-	public String question2() {
-		return "/question2";
+	public String question2(HttpServletRequest request) {
+		if (session == null || session.getAttribute("u_id") == null) {
+			System.out.println("========== Login Error ==========");
+			request.setAttribute("msg", "로그인을 해주세요.");
+			request.setAttribute("url", "login2");
+
+			return "/alert";
+		} else {
+
+			return "/question2";
+		}
 	}
 
 	@RequestMapping("/connection")
@@ -858,9 +867,8 @@ public class HomeController {
 			request.setAttribute("msg", "질문이 등록되었습니다.");
 			request.setAttribute("url", "question2");
 		} else {
-			System.out.println("========== Update Failed ==========");
-
-			return "updateQna";
+			request.setAttribute("msg", "질문이 등록에 실패하였습니다.");
+			request.setAttribute("url", "question2");
 		}
 		return "/alert";
 	}

@@ -49,17 +49,6 @@
 
 		<br> <br> <br>
 	</header>
-	<div align="center">
-		<select class="searchchang">
-			<option>카테고리</option>
-			<option>텐트</option>
-			<option>침낭</option>
-			<option>화로</option>
-			<option>키친</option>
-			<option>퍼니처</option>
-		</select> <input type="text" class="searchchang" autofocus required>
-		<button class="searchbutton" type="submit">검색</button>
-	</div>
 	<!-- Section-->
 	<section class="py-5">
 		<div class="container px-4 px-lg-5 mt-5">

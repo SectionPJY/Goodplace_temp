@@ -31,18 +31,13 @@
 				</p>
 			</div>
 			<div>
-				<input type="text" name="q_title">
+				<input type="text" name="q_title" />
 				<%
 					Object u_id = session.getAttribute("u_id");
 				%>
-				<input type="text" name="q_uid" value="<%=(String) u_id%>">
+				<input type="text" name="q_uid" value="<%=(String) u_id%>" />
 				<p>
-				<textarea id="questionContent" name="q_content"
-						placeholder="의견을 남겨주세요 
-					*상담사가 내용 확인을 위해 연락을 드릴 수 있습니다.
-					전화 연락을 원치 않으시면[전화불필요를]입력해주세요..
-					※내용본문에 고객님의 개인정보(주민번호 등)가 포함되지 않도록 주의 해 주세요."
-						style="resize: none; height: 500px;">
+					<textarea id="questionContent" name="q_content" placeholder="의견을 남겨주세요&#13;&#10;*상담사가 내용 확인을 위해 연락을 드릴 수 있습니다.&#13;&#10;전화 연락을 원치 않으시면[전화불필요를]입력해주세요..&#13;&#10;※내용본문에 고객님의 개인정보(주민번호 등)가 포함되지 않도록 주의 해 주세요." style="resize: none; height: 500px;">
 				</textarea>
 				</p>
 			</div>
