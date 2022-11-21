@@ -8,5 +8,6 @@
 		<typeAlias type="com.spring.ex.dto.QnADTO" alias="QnADTO" />
 		<typeAlias type="com.spring.ex.dto.EquipDTO" alias="EquipDTO" />
 		<typeAlias type="com.spring.ex.dto.CampDTO" alias="CampDTO" />
+		<typeAlias type="com.spring.ex.dto.OrderDTO" alias="UserDTO" />
 	</typeAliases>
 </configuration>

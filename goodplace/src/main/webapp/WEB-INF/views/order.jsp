@@ -28,6 +28,19 @@
 <script>
 	var IMP = window.IMP; // 생략 가능
 	IMP.init("imp11048506");
+
+	function changePrice(p_price) {
+		const count = parseInt(document.getElementById("count_value").value);
+		const price = parseInt(p_price);
+		console.log(count);
+		console.log(p_price);
+
+		const result = count * price;
+		console.log(result);
+		document.getElementById("total1").innerHTML = count * price;
+		document.getElementById("total2").innerHTML = count * price;
+
+	}
 </script>
 
 
@@ -63,14 +76,21 @@
 								<thead>
 									<tr>
 										<th scope="col">상품명</th>
-										<th scope="col">기간</th>
+										<th scope="col">개수</th>
 										<th scope="col">결제금액</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td>${EquipDTO.p_name }</td>
-										<td>1개</td>
+										<td><select id="count_value"
+											onchange="changePrice('${EquipDTO.p_price }')">
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+										</select>개</td>
 										<td class="price"><strong>${EquipDTO.p_price }</strong>원</td>
 									</tr>
 								</tbody>
@@ -86,13 +106,13 @@
 								<div class="optCont">
 									<div class="totalPrice">
 										<span class="tit">총 상품금액</span> <span class="con"><strong
-											class="colorBlue">${EquipDTO.p_price }</strong>원</span>
+											class="colorBlue" id="total1"></strong>원</span>
 									</div>
 								</div>
 								<div class="optBottom">
 									<div class="totalPayPrice">
 										<span class="tit">최종 결제금액</span> <span class="con"><strong
-											id="total">${EquipDTO.p_price }</strong>원</span>
+											id="total2"></strong>원</span>
 									</div>
 									<p class="desc">
 										<span>구매일자 + 372일(1년+1주일)</span> 전 연간상품 재 구매 시<br /> <span>5%할인</span>(이용권,
@@ -106,25 +126,28 @@
 							</div>
 							<script>
 								function requestPay() {
-									// IMP.request_pay(param, callback) 결제창 호출
-									IMP.request_pay({ // param
-										pg : "html5_inicis",
-										pay_method : "card",
-										merchant_uid : "ORD20180131-0000011",
-										name : "${EquipDTO.p_name }", // 상품명
-										amount : parseInt($("#total").text()
-												.replace(',', '')), // 총 가격
-										buyer_email : "${UserInfo.u_email }", // 구매자 이메일
-										buyer_name : "${UserInfo.u_name }", // 구매자 이름
-										buyer_tel : "${UserInfo.u_phone }", // 구매자 핸드폰
-										buyer_addr : "${UserInfo.u_address }", // 구매자 주소
-									}, function(rsp) { // callback
-										if (rsp.success) {
-											alert("결제성공");
-										} else {
-											alert("결제실패");
-										}
-									});
+									const u_id = "<%=(String)session.getAttribure('u_id')%>";
+									const p_id = ${EquipDTO.p_id};
+									const p_num = document.getElementById("count_value").value;
+									const price = document.getElementById("total2").value;
+									$
+											.ajax({
+												type : "post",
+												url : "http://localhost:8080/ex/insertOrder",
+												data : {
+													o_uid : 
+												},
+												success : function() {
+													alert("주문이 완료되었습니다.")
+
+													location.href = "http://localhost:8080/ex/shopcart"
+												},
+												error : function() {
+													alert("주문이 실패하였습니다.")
+
+													return false;
+												}
+											})
 								}
 							</script>
 						</div>

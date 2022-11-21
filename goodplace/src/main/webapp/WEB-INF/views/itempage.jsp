@@ -32,7 +32,7 @@
 							총 상품금액 <span>${EquipDTO.p_price }</span>원
 						</div>
 						<div class="btn">
-							<button onclick="">장비대여</button> <button onclick="sendValue('${EquipDTO.p_id}')">구매하기</button>
+							<button onclick="sendValue('${EquipDTO.p_id}')">대여하기</button>
 						</div>
 					</div>
 				</div>

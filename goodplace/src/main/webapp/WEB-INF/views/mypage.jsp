@@ -1,6 +1,7 @@
 
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	language="java"%>
+	<%@include file="header.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,11 +27,36 @@
 <!-- Style principal-->
 <link rel="stylesheet" type="text/css" href="resources/css/mypage.css">
 <!-- Style principal en LESS -->
+<script type="text/javascript">
+	function updateEmail(u_id) {
+		const u_email = document.getElementById("email");
+	
+		console.log(u_id);
+		console.log(u_email);
+	
+		$.ajax({
+			type : "post",
+			url : "http://localhost:8080/ex/updateEmail",
+			data : {
+				u_id : u_id,
+				u_email : u_email
+			},
+			success : function(data, status) {
+				alert("수정되었습니다.");
+				window.location.reload();
+			},
+			error : function(status) {
+				alert("수정에 실패하였습니다.");
+				return false;
+			}
+		});
+	};
+</script>
 
 </head>
 
 <body>
-	<%@include file="header.jsp"%>
+	
 	<br>
 	<br>
 	<br>
@@ -55,11 +81,11 @@
 							<c:forEach items="${userInfo}" var="UserDTO">
 								<h4 class="title" style="margin-right: 475px;">${UserDTO.u_name}</h4>
 								<hr>
-								<input type="text" class="floatleft"
+								<input type="text" id="email" class="floatleft"
 									placeholder=${UserDTO.u_email } name="searchText"
 									maxlength="100"
 									style="float: left; margin-right: 400px; width: 200px;">
-								<button>수정</button>
+								<button onclick="updateEmail('${UserDTO.u_id}')">수정</button>
 								<hr>
 								<input type="text" placeholder="${UserDTO.u_address }"
 									name="searchText" maxlength="100"
@@ -87,53 +113,7 @@
 						<hr>
 						<h5 style="float: left; margin-right: 100px;">관리자 &nbsp;경민대학교
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;22-04-03&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4</h5>
-						<button>예약취소</button>
 					</div>
-
-					<div class="dashborad-box">
-						<h4 class="title">주문 배송 현황</h4>
-						<table id="datatablesSimple">
-							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Position</th>
-									<th>Office</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>Salary</th>
-								</tr>
-							</thead>
-							<tfoot>
-								<tr>
-									<th>Name</th>
-									<th>Position</th>
-									<th>Office</th>
-									<th>Age</th>
-									<th>Start date</th>
-									<th>Salary</th>
-								</tr>
-							</tfoot>
-							<tbody>
-								<tr>
-									<td>Tiger Nixon</td>
-									<td>System Architect</td>
-									<td>Edinburgh</td>
-									<td>61</td>
-									<td>2011/04/25</td>
-									<td>$320,800</td>
-								</tr>
-								<tr>
-									<td>Garrett Winters</td>
-									<td>Accountant</td>
-									<td>Tokyo</td>
-									<td>63</td>
-									<td>2011/07/25</td>
-									<td>$170,750</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-
 					<div class="dashborad-box">
 						<h4 class="title">나의 문의 사항</h4>
 						<table class="listing-table">

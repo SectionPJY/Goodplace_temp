@@ -1,13 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
 	language="java"%>
-
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
 	rel="stylesheet" type="text/css" />
-
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-latest.js"></script>
 <nav class="navbar navbar-light  static-top">
 	<div class="container" style="z-index: 2">
 
@@ -34,12 +32,13 @@
 			</div>
 		</div>
 		<%
-            if (session == null || session.getAttribute("u_id") == null) {
-                out.println("<a class='navbar-brand' href='login2'>로그인</a>");
-            } else {
-                out.println("<div class='dropdown'><a class='navbar-brand' href='#!'><img src='resources/assets/img/user-interface.png' width='50' height='50' /></a> <div class='dropdown-content' style='width: 200px'><a href='mypage'>마이페이지</a> <a href='logout'>로그아웃</a></div></div>");
-            }
-        %>
+			if (session == null || session.getAttribute("u_id") == null) {
+				out.println("<a class='navbar-brand' href='login2'>로그인</a>");
+			} else {
+				out.println(
+						"<div class='dropdown'><a class='navbar-brand' href='#!'><img src='resources/assets/img/user-interface.png' width='50' height='50' /></a> <div class='dropdown-content' style='width: 200px'><a href='mypage'>마이페이지</a> <a href='logout'>로그아웃</a></div></div>");
+			}
+		%>
 
 
 	</div>

@@ -13,6 +13,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -46,6 +47,7 @@ import com.spring.ex.command.UserDeleteCommand;
 import com.spring.ex.command.UserInformationCommand;
 import com.spring.ex.command.UserListCommand;
 import com.spring.ex.command.UserUpdateCommand;
+import com.spring.ex.command.UserUpdateEmailCommand;
 import com.spring.ex.dto.UserDTO;
 
 /**
@@ -147,6 +149,9 @@ public class HomeController {
 
 	@Autowired
 	private QnADeleteCommand qnaDeleteCommand;
+
+	@Autowired
+	private UserUpdateEmailCommand updateEmailCommand;
 
 	@Autowired
 	private HttpSession session;
@@ -906,5 +911,38 @@ public class HomeController {
 		result.put("url", "searchPage");
 
 		return result;
+	}
+
+	@RequestMapping("/updateEmail")
+	public String updateEmail(HttpServletRequest request, Model model) {
+		System.out.println("========== Update Email ==========");
+
+		String u_id = request.getParameter("u_id");
+		String u_email = request.getParameter("u_email");
+		System.out.println("ID : " + u_id + ", Upadate Email : " + u_email);
+
+		model.addAttribute("request", request);
+		int result = updateEmailCommand.execute(model);
+		if (1 == result) {
+			request.setAttribute("msg", "수정되었습니다.");
+			request.setAttribute("url", "mypage");
+		} else {
+			request.setAttribute("msg", "수정에 실패하였습니다.");
+			request.setAttribute("url", "mypage");
+		}
+
+		return "/alert";
+	}
+	
+	@RequestMapping("/insertOrder")
+	public String insertOrder(HttpServletRequest request) {
+		System.out.println("========== Insert Order ==========");
+		
+		String o_uid;
+		int o_pid;
+		int o_num;
+		int o_price;
+		
+		return "/alert";
 	}
 }

@@ -125,4 +125,14 @@ public class UserDAO {
 
 		return sqlSession.update("UserMapper.updateUser", map);
 	}
+
+	// Update Email
+	public int updateEmail(String u_id, String u_email) {
+		System.out.println("========== Update Email : DAO ==========");
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("u_id", u_id);
+		map.put("u_email", u_email);
+
+		return sqlSession.update("UserMapper.updateEmail", map);
+	}
 }

@@ -10,7 +10,7 @@
 	function updateResult() {
 		if (1 == result) {
 			alert("수정되었습니다");
-			opener.location.href = "/ex/memberlist";
+			opener.location.href = "localhost:8080/ex/memberlist";
 			close();
 		} else {
 			alert("수정에 실패했습니다");

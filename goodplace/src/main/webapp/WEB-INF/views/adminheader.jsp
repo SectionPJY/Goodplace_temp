@@ -34,13 +34,6 @@
 	<form
 		class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
 		<div class="input-group">
-			<input id="word" class="form-control" type="text"
-				placeholder="Search for..." aria-label="Search for..."
-				aria-describedby="btnNavbarSearch" style="float: center" />
-			<button class="btn btn-primary" id="btnNavbarSearch" type="button"
-				onclick="search()">
-				<i class="fas fa-search"></i>
-			</button>
 			<div class="menu-button">
 				<button class="user" id="userregister" type="button"
 					style="height: 50px" onclick="location.href='registration'">회원
